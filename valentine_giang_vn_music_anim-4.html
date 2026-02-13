@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine Giang</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #ffe4ec, #ffffff);
+  text-align: center;
+  color: #444;
+  overflow-x: hidden;
+}
+
+.section {
+  padding: 60px 20px;
+}
+
+h1 {
+  font-size: 2.8em;
+  color: #ff4f81;
+}
+
+h2 {
+  color: #ff6b9a;
+}
+
+.card {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 8px 0;
+}
+
+button {
+  background: #ff4f81;
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 30px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: #ff2f6d;
+}
+
+/* Heart animation */
+.heart {
+  position: fixed;
+  top: -10px;
+  color: #ff6b9a;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_6c6b0d0a4f.mp3?filename=romantic-ambient-11056.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+  heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+<div class="section">
+  <h1>Happy Valentine Giang 💗</h1>
+  <p>Đã 5 tháng bên nhau, và mỗi ngày với em vẫn luôn rất đặc biệt.</p>
+</div>
+
+<div class="section">
+  <div class="card">
+    <h2>Câu chuyện của chúng ta 🎮</h2>
+    <p>Chúng ta gặp nhau lần đầu trong Roblox, từ chơi cùng nhau rồi dần trở nên thân thiết, và bây giờ đã bên nhau được 5 tháng 💕</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="card">
+    <h2>Lời nhắn cho em 🍬</h2>
+    <p>
+      Em luôn làm cho ngày của anh vui hơn.  
+      Dù anh hay trêu em là “Giang bald” 😆  
+      nhưng với anh, em vẫn là người dễ thương và ngọt ngào nhất.
+    </p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="card">
+    <h2>Lý do anh thích em 💖</h2>
+    <ul>
+      <li>Em rất dễ thương</li>
+      <li>Em làm anh cười</li>
+      <li>Em luôn quan tâm</li>
+      <li>Em làm ngày của anh tốt hơn</li>
+    </ul>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Dành cho em 🤍</h2>
+  <p>Hy vọng chúng ta sẽ còn ở bên nhau và tạo thêm nhiều kỷ niệm ngọt ngào.</p>
+  <button onclick="alert('Gửi em một cái ôm thật lớn 🤍')">Gửi em một cái ôm 🤍</button>
+</div>
+
+</body>
+</html>
