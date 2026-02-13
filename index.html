@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Happy Valentine Giang 💗</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <style>
-  /* Reset & body */
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background:#ffe6f0;
     overflow-x:hidden;
+    text-align:center;
   }
 
-  /* Halaman umum */
   .page {
     position:absolute;
     width:100%;
@@ -30,11 +30,12 @@
     padding:20px;
   }
 
-  h1 { font-size:2em; color:#ff4d88; text-align:center; margin-bottom:10px;}
-  p { font-size:1.1em; color:#333; text-align:center; margin:5px 0; max-width:500px; line-height:1.6em; }
-  .section { margin:20px 0; }
+  h1 { font-size:2em; color:#ff4d88; margin-bottom:10px;}
+  h2 { font-size:1.4em; color:#ff4d88; margin:10px 0;}
+  p { font-size:1.1em; color:#333; margin:5px 0; max-width:500px; line-height:1.6em; }
+  ul { list-style:none; padding-left:0; }
+  li { margin:5px 0; }
 
-  /* Tombol */
   button {
     padding:12px 25px;
     font-size:16px;
@@ -47,7 +48,7 @@
   #yes{ background:#ff4d88; color:white; }
   #no{ position:absolute; background:#ccc; }
 
-  /* Animasi hati */
+  /* Hati animasi */
   .heart {
     position:absolute;
     width:20px;
@@ -77,42 +78,42 @@
 
 <!-- PAGE 1: Yes / No -->
 <div id="page1" class="page">
-  <h1>Do you love me? ❤️</h1>
+  <h1>Bạn có yêu anh không? ❤️</h1>
   <div style="position:relative;">
-    <button id="yes" onclick="showValentine()">Yes</button>
-    <button id="no">No</button>
+    <button id="yes" onclick="showValentine()">Có</button>
+    <button id="no">Không</button>
   </div>
 </div>
 
 <!-- PAGE 2: Valentine -->
 <div id="page2" class="page">
   <h1>Happy Valentine Giang 💗</h1>
-  <p class="section">Udah 5 bulan bareng kamu, dan setiap hari tetap terasa spesial.</p>
+  <p class="section">Đã 5 tháng bên nhau, và mỗi ngày vẫn luôn thật đặc biệt.</p>
 
   <div class="section">
-    <h2>Our Story</h2>
-    <p>Kami pertama kali ketemu di game Roblox, terus makin dekat sampai akhirnya pacaran. 💖</p>
+    <h2>Câu chuyện của chúng ta</h2>
+    <p>Chúng ta gặp nhau lần đầu trong Roblox, rồi dần trở nên thân thiết và cuối cùng chính thức hẹn hò. 💖</p>
   </div>
 
   <div class="section">
-    <h2>Cute Message</h2>
-    <p>Walaupun aku suka ejek kamu “Giang bald”, tapi kamu tetap yang paling manis dan bikin aku senyum tiap hari 😆🍬</p>
+    <h2>Thông điệp dễ thương</h2>
+    <p>Dù anh hay trêu em “Giang bald”, nhưng em vẫn là cô gái ngọt ngào và khiến anh cười mỗi ngày 😆🍬</p>
   </div>
 
   <div class="section">
-    <h2>Reasons I Like You</h2>
-    <ul style="list-style:none; padding-left:0;">
-      <li>🌸 Kamu lucu</li>
-      <li>🍰 Kamu perhatian</li>
-      <li>😂 Kamu bikin aku ketawa</li>
-      <li>💖 Kamu selalu bikin hari aku spesial</li>
+    <h2>Những lý do anh thích em</h2>
+    <ul>
+      <li>🌸 Em đáng yêu</li>
+      <li>🍰 Em quan tâm anh</li>
+      <li>😂 Em làm anh cười</li>
+      <li>💖 Em khiến mỗi ngày anh đều đặc biệt</li>
     </ul>
   </div>
 
   <div class="section">
-    <h2>Sweet Closing</h2>
-    <p>Terima kasih sudah ada di hidup aku 💗</p>
-    <button onclick="alert('Sending big hug 🤍')">Send you a big hug 🤍</button>
+    <h2>Lời kết ngọt ngào</h2>
+    <p>Cảm ơn em đã đến bên anh 💗</p>
+    <button onclick="alert('Gửi một cái ôm lớn 🤍')">Gửi một cái ôm lớn 🤍</button>
   </div>
 </div>
 
@@ -133,7 +134,7 @@ function showValentine(){
   document.getElementById("page2").style.opacity = "1";
   document.getElementById("page2").style.pointerEvents = "auto";
 
-  // bikin animasi hati muncul
+  // animasi hati
   for(let i=0;i<20;i++){
     let h = document.createElement("div");
     h.className = "heart";
