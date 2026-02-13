@@ -2,17 +2,147 @@
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
-<title>For Giang ❤️</title>
+<title>Happy Valentine Giang 💗</title>
 <style>
-  body{
-    margin:0;
-    font-family:Arial, sans-serif;
+  /* Reset & body */
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     background:#ffe6f0;
-    text-align:center;
-    overflow:hidden;
+    overflow-x:hidden;
   }
-  .page{
+
+  /* Halaman umum */
+  .page {
     position:absolute;
     width:100%;
-    height:100vh;
+    min-height:100vh;
     display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    transition:0.5s;
+  }
+  #page2{
+    opacity:0;
+    pointer-events:none;
+    background:#fff0f5;
+    padding:20px;
+  }
+
+  h1 { font-size:2em; color:#ff4d88; text-align:center; margin-bottom:10px;}
+  p { font-size:1.1em; color:#333; text-align:center; margin:5px 0; max-width:500px; line-height:1.6em; }
+  .section { margin:20px 0; }
+
+  /* Tombol */
+  button {
+    padding:12px 25px;
+    font-size:16px;
+    margin:10px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    transition:0.3s;
+  }
+  #yes{ background:#ff4d88; color:white; }
+  #no{ position:absolute; background:#ccc; }
+
+  /* Animasi hati */
+  .heart {
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:red;
+    transform:rotate(-45deg);
+    animation:floatUp 4s linear infinite;
+  }
+  .heart::before, .heart::after {
+    content:"";
+    position:absolute;
+    width:20px; height:20px;
+    background:red;
+    border-radius:50%;
+  }
+  .heart::before { top:-10px; left:0; }
+  .heart::after { top:0; left:10px; }
+
+  @keyframes floatUp{
+    0%{ transform:translate(0,0) rotate(-45deg); opacity:1; }
+    100%{ transform:translate(0,-400px) rotate(-45deg); opacity:0; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: Yes / No -->
+<div id="page1" class="page">
+  <h1>Do you love me? ❤️</h1>
+  <div style="position:relative;">
+    <button id="yes" onclick="showValentine()">Yes</button>
+    <button id="no">No</button>
+  </div>
+</div>
+
+<!-- PAGE 2: Valentine -->
+<div id="page2" class="page">
+  <h1>Happy Valentine Giang 💗</h1>
+  <p class="section">Udah 5 bulan bareng kamu, dan setiap hari tetap terasa spesial.</p>
+
+  <div class="section">
+    <h2>Our Story</h2>
+    <p>Kami pertama kali ketemu di game Roblox, terus makin dekat sampai akhirnya pacaran. 💖</p>
+  </div>
+
+  <div class="section">
+    <h2>Cute Message</h2>
+    <p>Walaupun aku suka ejek kamu “Giang bald”, tapi kamu tetap yang paling manis dan bikin aku senyum tiap hari 😆🍬</p>
+  </div>
+
+  <div class="section">
+    <h2>Reasons I Like You</h2>
+    <ul style="list-style:none; padding-left:0;">
+      <li>🌸 Kamu lucu</li>
+      <li>🍰 Kamu perhatian</li>
+      <li>😂 Kamu bikin aku ketawa</li>
+      <li>💖 Kamu selalu bikin hari aku spesial</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Sweet Closing</h2>
+    <p>Terima kasih sudah ada di hidup aku 💗</p>
+    <button onclick="alert('Sending big hug 🤍')">Send you a big hug 🤍</button>
+  </div>
+</div>
+
+<script>
+let scale=1;
+const no = document.getElementById("no");
+const yes = document.getElementById("yes");
+
+no.addEventListener("mouseover", ()=>{
+  const x = Math.random()*200-100;
+  const y = Math.random()*200-100;
+  no.style.transform = `translate(${x}px,${y}px)`;
+  scale += 0.1;
+  yes.style.transform = `scale(${scale})`;
+});
+
+function showValentine(){
+  document.getElementById("page2").style.opacity = "1";
+  document.getElementById("page2").style.pointerEvents = "auto";
+
+  // bikin animasi hati muncul
+  for(let i=0;i<20;i++){
+    let h = document.createElement("div");
+    h.className = "heart";
+    h.style.left = Math.random()*90 + "vw";
+    h.style.animationDuration = (3+Math.random()*2)+"s";
+    document.body.appendChild(h);
+  }
+}
+</script>
+
+</body>
+</html>
