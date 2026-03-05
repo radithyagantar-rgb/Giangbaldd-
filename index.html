@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For Giang Bald😜</title>
+<title>For Giang ❤️</title>
 
 <style>
 
@@ -10,10 +10,10 @@ body{
 margin:0;
 background:black;
 overflow:hidden;
-font-family:Arial;
+font-family:Arial, sans-serif;
 }
 
-span{
+.word{
 position:absolute;
 color:#ff69b4;
 font-size:14px;
@@ -25,7 +25,7 @@ position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-font-size:50px;
+font-size:55px;
 color:#ff4da6;
 font-weight:bold;
 text-shadow:0 0 25px pink;
@@ -34,15 +34,8 @@ animation:pulse 2s infinite;
 
 @keyframes pulse{
 0%{transform:translate(-50%,-50%) scale(1);}
-50%{transform:translate(-50%,-50%) scale(1.2);}
+50%{transform:translate(-50%,-50%) scale(1.25);}
 100%{transform:translate(-50%,-50%) scale(1);}
-}
-
-#music{
-position:fixed;
-bottom:10px;
-left:10px;
-opacity:0.2;
 }
 
 </style>
@@ -52,51 +45,58 @@ opacity:0.2;
 
 <div id="name">Giang ❤️</div>
 
-<div id="music">
-<iframe width="300" height="170"
+<!-- Musik -->
+<iframe width="0" height="0"
 src="https://www.youtube.com/embed/B7Y4LHbpXv0?autoplay=1&loop=1&playlist=B7Y4LHbpXv0"
 frameborder="0"
 allow="autoplay">
 </iframe>
-</div>
 
 <script>
 
 const text = "I Love You";
-const amount = 160;
-let spans = [];
+const total = 180;
+let elements = [];
 
-for(let i=0;i<amount;i++){
+for(let i=0;i<total;i++){
 
-let s=document.createElement("span");
-s.innerText=text;
+let span = document.createElement("div");
+span.className = "word";
+span.innerText = text;
 
-document.body.appendChild(s);
-spans.push(s);
+document.body.appendChild(span);
+elements.push(span);
 
 }
 
-let t=0;
+let time = 0;
 
 function animate(){
 
-t+=0.02;
+time += 0.03;
 
-spans.forEach((span,i)=>{
+elements.forEach((el,i)=>{
 
-let angle=i/amount*Math.PI*2;
+let angle = i/total * Math.PI * 2;
 
-let x=16*Math.pow(Math.sin(angle),3);
-let y=13*Math.cos(angle)-5*Math.cos(2*angle)-2*Math.cos(3*angle)-Math.cos(4*angle);
+let x = 16 * Math.pow(Math.sin(angle),3);
+let y = 13*Math.cos(angle)
+      -5*Math.cos(2*angle)
+      -2*Math.cos(3*angle)
+      -Math.cos(4*angle);
 
-let scale=18+Math.sin(t)*6;
+let scale = 20 + Math.sin(time)*6;
 
-span.style.left=(window.innerWidth/2 + x*scale)+"px";
-span.style.top=(window.innerHeight/2 - y*scale)+"px";
+let posX = window.innerWidth/2 + x*scale;
+let posY = window.innerHeight/2 - y*scale;
+
+el.style.left = posX + "px";
+el.style.top = posY + "px";
 
 });
 
 requestAnimationFrame(animate);
+
 }
 
 animate();
