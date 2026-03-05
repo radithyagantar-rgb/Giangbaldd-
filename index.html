@@ -1,37 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Love Heart</title>
+<title>For Giang ❤️</title>
+
 <style>
 body{
-  margin:0;
-  background:black;
-  overflow:hidden;
-  font-family:Arial, sans-serif;
+margin:0;
+background:black;
+overflow:hidden;
+font-family:Arial;
 }
 
 span{
-  position:absolute;
-  color:#ff69b4;
-  font-size:14px;
+position:absolute;
+color:#ff69b4;
+font-size:14px;
 }
 
 #name{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  font-size:40px;
-  color:#ff4da6;
-  font-weight:bold;
-  animation: pulse 2s infinite;
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:45px;
+color:#ff4da6;
+font-weight:bold;
+text-shadow:0 0 15px pink;
+animation:pulse 2s infinite;
 }
 
 @keyframes pulse{
-  0%{transform:translate(-50%,-50%) scale(1);}
-  50%{transform:translate(-50%,-50%) scale(1.2);}
-  100%{transform:translate(-50%,-50%) scale(1);}
+0%{transform:translate(-50%,-50%) scale(1);}
+50%{transform:translate(-50%,-50%) scale(1.2);}
+100%{transform:translate(-50%,-50%) scale(1);}
 }
 </style>
 </head>
@@ -41,24 +43,43 @@ span{
 <div id="name">Giang ❤️</div>
 
 <script>
-const text = "I Love You";
-const amount = 200;
+
+const text="I Love You";
+const amount=120;
+let spans=[];
 
 for(let i=0;i<amount;i++){
 
-  let span = document.createElement("span");
-  span.innerText = text;
+let span=document.createElement("span");
+span.innerText=text;
 
-  let t = Math.random() * Math.PI * 2;
+document.body.appendChild(span);
+spans.push(span);
 
-  let x = 16 * Math.pow(Math.sin(t),3);
-  let y = 13*Math.cos(t) - 5*Math.cos(2*t) - 2*Math.cos(3*t) - Math.cos(4*t);
-
-  span.style.left = (window.innerWidth/2 + x*20) + "px";
-  span.style.top = (window.innerHeight/2 - y*20) + "px";
-
-  document.body.appendChild(span);
 }
+
+function animate(){
+
+let time=Date.now()*0.002;
+
+spans.forEach((span,i)=>{
+
+let t=i/amount*Math.PI*2;
+
+let x=16*Math.pow(Math.sin(t),3);
+let y=13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t);
+
+span.style.left=(window.innerWidth/2 + x*20*Math.sin(time))+"px";
+span.style.top=(window.innerHeight/2 - y*20*Math.cos(time))+"px";
+
+});
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
 </script>
 
 </body>
