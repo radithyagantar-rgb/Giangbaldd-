@@ -2,9 +2,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>For Giang ❤️</title>
+<title>For Giang Bald😜</title>
 
 <style>
+
 body{
 margin:0;
 background:black;
@@ -16,6 +17,7 @@ span{
 position:absolute;
 color:#ff69b4;
 font-size:14px;
+white-space:nowrap;
 }
 
 #name{
@@ -23,10 +25,10 @@ position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-font-size:45px;
+font-size:50px;
 color:#ff4da6;
 font-weight:bold;
-text-shadow:0 0 15px pink;
+text-shadow:0 0 25px pink;
 animation:pulse 2s infinite;
 }
 
@@ -35,6 +37,14 @@ animation:pulse 2s infinite;
 50%{transform:translate(-50%,-50%) scale(1.2);}
 100%{transform:translate(-50%,-50%) scale(1);}
 }
+
+#music{
+position:fixed;
+bottom:10px;
+left:10px;
+opacity:0.2;
+}
+
 </style>
 </head>
 
@@ -42,40 +52,51 @@ animation:pulse 2s infinite;
 
 <div id="name">Giang ❤️</div>
 
+<div id="music">
+<iframe width="300" height="170"
+src="https://www.youtube.com/embed/B7Y4LHbpXv0?autoplay=1&loop=1&playlist=B7Y4LHbpXv0"
+frameborder="0"
+allow="autoplay">
+</iframe>
+</div>
+
 <script>
 
-const text="I Love You";
-const amount=120;
-let spans=[];
+const text = "I Love You";
+const amount = 160;
+let spans = [];
 
 for(let i=0;i<amount;i++){
 
-let span=document.createElement("span");
-span.innerText=text;
+let s=document.createElement("span");
+s.innerText=text;
 
-document.body.appendChild(span);
-spans.push(span);
+document.body.appendChild(s);
+spans.push(s);
 
 }
 
+let t=0;
+
 function animate(){
 
-let time=Date.now()*0.002;
+t+=0.02;
 
 spans.forEach((span,i)=>{
 
-let t=i/amount*Math.PI*2;
+let angle=i/amount*Math.PI*2;
 
-let x=16*Math.pow(Math.sin(t),3);
-let y=13*Math.cos(t)-5*Math.cos(2*t)-2*Math.cos(3*t)-Math.cos(4*t);
+let x=16*Math.pow(Math.sin(angle),3);
+let y=13*Math.cos(angle)-5*Math.cos(2*angle)-2*Math.cos(3*angle)-Math.cos(4*angle);
 
-span.style.left=(window.innerWidth/2 + x*20*Math.sin(time))+"px";
-span.style.top=(window.innerHeight/2 - y*20*Math.cos(time))+"px";
+let scale=18+Math.sin(t)*6;
+
+span.style.left=(window.innerWidth/2 + x*scale)+"px";
+span.style.top=(window.innerHeight/2 - y*scale)+"px";
 
 });
 
 requestAnimationFrame(animate);
-
 }
 
 animate();
